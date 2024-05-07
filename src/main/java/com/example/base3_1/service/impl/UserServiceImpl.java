@@ -7,6 +7,7 @@ import com.example.base3_1.repository.RoleRepository;
 import com.example.base3_1.repository.UserRepository;
 import com.example.base3_1.security.PasswordGenerator;
 import com.example.base3_1.service.UserService;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,28 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByPhone(String phone) {
         return userRepository.findUserByPhone(phone);
+    }
+
+    @Override
+    public User update(UserDTO dto) {
+        User user = userRepository.findById(dto.getId()).get();
+
+        if (user == null)
+            throw new RuntimeException("user not found");
+
+        if (StringUtils.isNotBlank(dto.getPassword()))
+            user.setPassword(PasswordGenerator.getHashString(dto.getPassword()));
+        if (StringUtils.isNotBlank(dto.getName()))
+            user.setName(dto.getName());
+        if (StringUtils.isNotBlank(dto.getEmail()))
+            user.setEmail(dto.getEmail());
+        if (StringUtils.isNotBlank(dto.getAvatar()))
+            user.setAvatar(dto.getAvatar());
+        if (StringUtils.isNotBlank(dto.getGender()))
+            user.setGender(dto.getGender());
+        if (StringUtils.isNotBlank(dto.getDescription()))
+            user.setDescription(dto.getDescription());
+
+        return userRepository.save(user);
     }
 }

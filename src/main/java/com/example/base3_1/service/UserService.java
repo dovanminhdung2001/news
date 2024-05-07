@@ -9,4 +9,6 @@ public interface UserService {
     boolean existsByPhone(String phone);
 
     User findByPhone(String phone);
+
+    User update(UserDTO userDTO);
 }

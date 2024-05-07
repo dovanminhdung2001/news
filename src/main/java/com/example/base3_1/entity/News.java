@@ -1,11 +1,13 @@
 package com.example.base3_1.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -44,4 +46,8 @@ public class News {
             inverseJoinColumns = @JoinColumn(name = "hashtag_id")
     )
     private List<Hashtag> hashtags;
+
+    @ManyToMany(mappedBy = "bookmarks")
+    @JsonIgnore
+    private List<User> bookmarkedBy = new ArrayList<>();
 }

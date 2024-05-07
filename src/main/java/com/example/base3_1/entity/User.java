@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -43,4 +45,12 @@ public class User {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @CreatedDate
     private Date birthDate;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "user_bookmarks",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "news_id") }
+    )
+    private List<News> bookmarks = new ArrayList<>();
 }
