@@ -121,4 +121,16 @@ public class NewsServiceImpl implements NewsService {
     public Page<News> page(Pageable pageable) {
         return newsRepository.findAll(pageable);
     }
+
+    @Override
+    public News delete(Integer id, Boolean deleted) {
+        News news = newsRepository.findById(id).get();
+
+        if (news == null)
+            throw new RuntimeException("News notfound");
+
+        news.setDeleted(!deleted);
+
+        return newsRepository.save(news);
+    }
 }

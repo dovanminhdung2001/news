@@ -52,7 +52,6 @@ public class NewsController {
 
     @DeleteMapping("/admin/news/delete")
     ResponseEntity<?> delete(@RequestParam Integer id, @RequestParam Boolean deleted) {
-        return  null;
-//        return ResponseEntity.ok(newsService.delete(id, deleted));
+        return ResponseEntity.ok(newsService.delete(id, deleted));
     }
 }

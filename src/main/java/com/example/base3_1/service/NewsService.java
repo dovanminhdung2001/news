@@ -21,4 +21,6 @@ public interface NewsService {
     Page<News> home(Pageable pageable, Boolean newest);
 
     Page<News> page(Pageable pageable);
+
+    News delete(Integer id, Boolean deleted);
 }

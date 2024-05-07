@@ -21,7 +21,7 @@ public class UserDTO {
     private Role role;
     private Integer roleId;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dob;
+    private Date birthDate;
     @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
     private Date createdDate;
     @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
