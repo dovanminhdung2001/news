@@ -1,10 +1,12 @@
 package com.example.base3_1.dto;
 
+import com.example.base3_1.entity.Bookmark;
 import com.example.base3_1.entity.Role;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class UserDTO {
@@ -18,9 +20,14 @@ public class UserDTO {
     private String description;
     private Role role;
     private Integer roleId;
-    private Boolean isActive = true;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date birthDate;
+    private Date dob;
+    @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
+    private Date createdDate;
+    @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
+    private Date updatedDate;
+    private Boolean isActive = true;
+    private List<Bookmark> bookmarks;
     public UserDTO() {
     }
 }
