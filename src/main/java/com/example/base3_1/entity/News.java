@@ -28,11 +28,11 @@ public class News {
     private Integer view;
     @Column(name = "created_date", updatable = false)
     @CreatedDate
-    @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+7")
     private Date createdDate;
     @Column(name = "updated_date", insertable = false)
     @LastModifiedDate
-    @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+7")
     private Date updatedDate;
     private boolean deleted;
 

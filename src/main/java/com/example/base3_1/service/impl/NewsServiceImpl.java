@@ -116,4 +116,9 @@ public class NewsServiceImpl implements NewsService {
 
         return newsRepository.findHotNews(calendar.getTime(), pageable);
     }
+
+    @Override
+    public Page<News> page(Pageable pageable) {
+        return newsRepository.findAll(pageable);
+    }
 }

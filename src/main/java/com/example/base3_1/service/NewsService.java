@@ -19,4 +19,6 @@ public interface NewsService {
     List<News> bookmark(Integer id, Boolean favor);
 
     Page<News> home(Pageable pageable, Boolean newest);
+
+    Page<News> page(Pageable pageable);
 }

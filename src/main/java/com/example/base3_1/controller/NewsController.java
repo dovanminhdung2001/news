@@ -44,4 +44,15 @@ public class NewsController {
     ResponseEntity<?> home(Pageable pageable, @RequestParam Boolean newest) {
         return ResponseEntity.ok(newsService.home(pageable, newest));
     }
+
+    @GetMapping("/admin/news/page")
+    ResponseEntity<?> page(Pageable pageable) {
+        return ResponseEntity.ok(newsService.page(pageable));
+    }
+
+    @DeleteMapping("/admin/news/delete")
+    ResponseEntity<?> delete(@RequestParam Integer id, @RequestParam Boolean deleted) {
+        return  null;
+//        return ResponseEntity.ok(newsService.delete(id, deleted));
+    }
 }
