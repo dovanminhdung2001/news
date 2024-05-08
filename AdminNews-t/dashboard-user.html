@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    
+<!-- Mirrored from coderthemes.com/hyper/saas/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:34 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Analytics Dashboard | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- third party css -->
+        <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+
+    </head>
+
+    <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+    
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo_sm.png" alt="" height="25"> 
+                    </span> 
+                </a> 
+    
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav"> 
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="uil-home-alt"></i>
+                                <span> Admin </span>
+                            </a>
+                            <div class="collapse" id="sidebarDashboards">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.html">Thống kê bài viết</a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-user.html">Thống kê người dùng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
+
+                        <li class="side-nav-item">
+                            <a href="manage-news.html" class="side-nav-link">
+                                <i class="uil-newspaper"></i>
+                                <span> Quản lý bài viết </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-users.html" class="side-nav-link">
+                                <i class="uil-user-square"></i> 
+                                <span> Quản lý người dùng </span>
+                            </a>
+                        </li>
+                    </ul> 
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <div class="navbar-custom">
+                        <ul class="list-unstyled topbar-menu float-end mb-0">    
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <span class="account-user-avatar"> 
+                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                    <span>
+                                        <span class="account-user-name">Minh Duxng</span>
+                                        <span class="account-position">Admin</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span>Edit accout</span>
+                                    </a>   
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button> 
+                    </div>
+                    <!-- end Topbar -->
+                    
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box"> 
+                                    <h4 class="page-title">Analytics</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class='uil uil-users-alt float-end'></i>
+                                        <h6 class="text-uppercase mt-0">Active Users</h6>
+                                        <h2 class="my-2" id="active-users-count">121</h2>
+                                        <p class="mb-0 text-muted">
+                                            <span class="text-success me-2"><span class="mdi mdi-arrow-up-bold"></span> 5.27%</span>
+                                            <span class="text-nowrap">Since last month</span>  
+                                        </p>
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+
+                                <div class="card tilebox-one" style="margin-bottom: 0px; margin-top: 48px;">
+                                    <div class="card-body">
+                                        <i class='uil uil-window-restore float-end'></i>
+                                        <h6 class="text-uppercase mt-0">Views per minute</h6>
+                                        <h2 class="my-2" id="active-views-count">560</h2>
+                                        <p class="mb-0 text-muted">
+                                            <span class="text-danger me-2"><span class="mdi mdi-arrow-down-bold"></span> 1.08%</span>
+                                            <span class="text-nowrap">Since previous week</span>
+                                        </p>
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card--> 
+                            </div> <!-- end col -->
+
+                            <div class="col-xl-9 col-lg-8" >
+                                <div class="card" style="margin-bottom: 0px;">
+                                    <div class="card-body" style="padding-bottom: 0px;"> 
+                                        <ul class="nav float-end d-none d-lg-flex">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-muted" href="#">d</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-muted" href="#">m</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">y</a>
+                                            </li> 
+                                        </ul>
+                                        <h4 class="header-title mb-3">Sessions Overview</h4>
+
+                                        <div dir="ltr">
+                                            <div id="sessions-overview" class="apex-charts mt-3" data-colors="#0acf97"></div>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div>
+                        </div> 
+
+                    </div>
+                    <!-- container -->
+
+                </div>
+                <!-- content --> 
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper --> 
+
+        <!-- bundle -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+
+        <!-- third party js -->
+        <!-- <script src="assets/js/vendor/chart.min.js"></script> -->
+        <script src="assets/js/vendor/apexcharts.min.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- third party js ends -->
+
+        <!-- demo app -->
+        <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
+        <!-- end demo js-->
+    </body>
+
+
+<!-- Mirrored from coderthemes.com/hyper/saas/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:35 GMT -->
+</html>

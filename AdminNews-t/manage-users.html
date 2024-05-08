@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from coderthemes.com/hyper/saas/crm-management.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:50 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Management | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+
+    </head>
+
+    <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+    
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo_sm.png" alt="" height="25"> 
+                    </span> 
+                </a> 
+    
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav"> 
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="uil-home-alt"></i>
+                                <span> Admin </span>
+                            </a>
+                            <div class="collapse" id="sidebarDashboards">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.html">Thống kê bài viết</a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-user.html">Thống kê người dùng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
+
+                        <li class="side-nav-item">
+                            <a href="manage-news.html" class="side-nav-link">
+                                <i class="uil-newspaper"></i>
+                                <span> Quản lý bài viết </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-users.html" class="side-nav-link">
+                                <i class="uil-user-square"></i> 
+                                <span> Quản lý người dùng </span>
+                            </a>
+                        </li>
+                    </ul> 
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                      <!-- Topbar Start -->
+                      <div class="navbar-custom">
+                        <ul class="list-unstyled topbar-menu float-end mb-0">    
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <span class="account-user-avatar"> 
+                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                    <span>
+                                        <span class="account-user-name">Minh Duxng</span>
+                                        <span class="account-position">Admin</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span>Edit accout</span>
+                                    </a>   
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button> 
+                    </div>
+                    <!-- end Topbar -->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box"> 
+                                    <h4 class="page-title">Management</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->  
+
+                        <div class="row">
+                            <div class="col-xxl-6">
+                                <div class="card">  
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Employees Name</th>
+                                                        <th scope="col">Eamil Address</th>
+                                                        <th scope="col">Project Name</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <img class="rounded-circle" src="assets/images/users/avatar-1.jpg" alt="Avtar image" width="31">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    Adam Baldwin
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>AdamNBaldwin@dayrep.com</td>
+                                                        <td>Admin Dashboard</td>
+                                                        <td>
+                                                            <span class="badge bg-success-lighten text-success">Active</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>
+                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
+                                                        </td>
+                                                    </tr> <!-- end tr -->
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <img class="rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Avtar image" width="31">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    Peter Wallace
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>PeterGWallace@dayrep.com</td>
+                                                        <td>Landing Page</td>
+                                                        <td>
+                                                            <span class="badge bg-success-lighten text-success">Active</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>
+                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
+                                                        </td>
+                                                    </tr> <!-- end tr -->
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <img class="rounded-circle" src="assets/images/users/avatar-3.jpg" alt="Avtar image" width="31">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    Jacob Dunn
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>JacobEDunn@dayrep.com</td>
+                                                        <td>Logo Design</td>
+                                                        <td>
+                                                            <span class="badge bg-warning-lighten text-warning">Inactive</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>
+                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
+                                                        </td>
+                                                    </tr> <!-- end tr -->
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <img class="rounded-circle" src="assets/images/users/avatar-4.jpg" alt="Avtar image" width="31">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    Terry Adams
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>TerryCAdams@dayrep.com</td>
+                                                        <td>Client Project</td>
+                                                        <td>
+                                                            <span class="badge bg-success-lighten text-success">Active</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>
+                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
+                                                        </td>
+                                                    </tr> <!-- end tr -->
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0">
+                                                                    <img class="rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Avtar image" width="31">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    Jason Stovall
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>JasonJStovall@armyspy.com</td>
+                                                        <td>Figma Work</td>
+                                                        <td>
+                                                            <span class="badge bg-warning-lighten text-warning">Inactive</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>
+                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
+                                                        </td>
+                                                    </tr> <!-- end tr -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->  
+                        </div>
+                    </div> <!-- container -->
+                </div> <!-- content -->
+  
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="client-chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <img class="rounded-circle" src="assets/images/users/avatar-4.jpg" height="40" alt="Avtar image">
+                                </div>
+                                <div class="flex-grow-1 ms-2">
+                                    <a href="javascript:void(0);" class="text-secondary">Kevin Snowden</a>
+                                    <p class="text-muted fw-normal font-14 mb-0"><i class="mdi mdi-circle text-success font-12 me-1"></i>Online</p>
+                                </div>
+                            </div>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="chat-conversation">
+                            <div data-simplebar style="height: 350px;">
+                                <ul class="conversation-list">
+                                    <li class="clearfix">
+                                        <div class="chat-avatar">
+                                            <img src="assets/images/users/avatar-5.jpg" alt="male">
+                                            <i>10:00</i>
+                                        </div>
+                                        <div class="conversation-text">
+                                            <div class="ctext-wrap">
+                                                <i>Geneva</i>
+                                                <p>
+                                                    Hello!
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix odd">
+                                        <div class="chat-avatar">
+                                            <img src="assets/images/users/avatar-1.jpg" alt="Female">
+                                            <i>10:01</i>
+                                        </div>
+                                        <div class="conversation-text">
+                                            <div class="ctext-wrap">
+                                                <i>Dominic</i>
+                                                <p>
+                                                    Hi, How are you? What about our next meeting?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="chat-avatar">
+                                            <img src="assets/images/users/avatar-5.jpg" alt="male">
+                                            <i>10:01</i>
+                                        </div>
+                                        <div class="conversation-text">
+                                            <div class="ctext-wrap">
+                                                <i>Geneva</i>
+                                                <p>
+                                                    Yeah everything is fine
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix odd">
+                                        <div class="chat-avatar">
+                                            <img src="assets/images/users/avatar-1.jpg" alt="male">
+                                            <i>10:02</i>
+                                        </div>
+                                        <div class="conversation-text">
+                                            <div class="ctext-wrap">
+                                                <i>Dominic</i>
+                                                <p>
+                                                    Wow that's great
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form class="needs-validation" novalidate name="chat-form" id="chat-form">
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control chat-input" placeholder="Enter your text" required>
+                                        <div class="invalid-feedback">
+                                            Please enter your messsage
+                                        </div>
+                                    </div>
+                                    <div class="col-auto d-grid">
+                                        <button type="submit" class="btn btn-danger chat-send waves-effect waves-light">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div> <!-- end .chat-conversation-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="end-bar">
+
+            <div class="rightbar-title">
+                <a href="javascript:void(0);" class="end-bar-toggle float-end">
+                    <i class="dripicons-cross noti-icon"></i>
+                </a>
+                <h5 class="m-0">Settings</h5>
+            </div>
+
+            <div class="rightbar-content h-100" data-simplebar>
+
+                <div class="p-3">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Customize </strong> the overall color scheme, sidebar menu, etc.
+                    </div>
+
+                    <!-- Settings -->
+                    <h5 class="mt-3">Color Scheme</h5>
+                    <hr class="mt-1" />
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="light" id="light-mode-check" checked>
+                        <label class="form-check-label" for="light-mode-check">Light Mode</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="dark" id="dark-mode-check">
+                        <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
+                    </div>
+       
+
+                    <!-- Width -->
+                    <h5 class="mt-4">Width</h5>
+                    <hr class="mt-1" />
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="width" value="fluid" id="fluid-check" checked>
+                        <label class="form-check-label" for="fluid-check">Fluid</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="width" value="boxed" id="boxed-check">
+                        <label class="form-check-label" for="boxed-check">Boxed</label>
+                    </div>
+        
+
+                    <!-- Left Sidebar-->
+                    <h5 class="mt-4">Left Sidebar</h5>
+                    <hr class="mt-1" />
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="theme" value="default" id="default-check">
+                        <label class="form-check-label" for="default-check">Default</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="theme" value="light" id="light-check" checked>
+                        <label class="form-check-label" for="light-check">Light</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" name="theme" value="dark" id="dark-check">
+                        <label class="form-check-label" for="dark-check">Dark</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="compact" value="fixed" id="fixed-check" checked>
+                        <label class="form-check-label" for="fixed-check">Fixed</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="compact" value="condensed" id="condensed-check">
+                        <label class="form-check-label" for="condensed-check">Condensed</label>
+                    </div>
+
+                    <div class="form-check form-switch mb-1">
+                        <input class="form-check-input" type="checkbox" name="compact" value="scrollable" id="scrollable-check">
+                        <label class="form-check-label" for="scrollable-check">Scrollable</label>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
+            
+                        <a href="https://themes.getbootstrap.com/product/hyper-responsive-admin-dashboard-template/"
+                            class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
+                    </div>
+                </div> <!-- end padding-->
+
+            </div>
+        </div>
+
+        <div class="rightbar-overlay"></div>
+        <!-- /End-bar -->
+
+        <!-- bundle -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+
+        <!-- third party js -->
+        <script src="assets/js/vendor/apexcharts.min.js"></script>
+
+        <!-- demo app -->
+        <script src="assets/js/pages/demo.crm-management.js"></script>
+
+        
+    </body>
+
+<!-- Mirrored from coderthemes.com/hyper/saas/crm-management.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:50 GMT -->
+</html>

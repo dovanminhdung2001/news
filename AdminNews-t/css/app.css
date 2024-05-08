@@ -1,0 +1,63 @@
+#toast {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	min-width: 150px;
+	min-height: 60px;
+	/* height: fit-content;  */
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	z-index: 9999;
+	font-weight: bold;
+}
+
+.toast-content {
+    padding: 20px;
+    text-align: center; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.hidden {
+    display: none;  
+}
+
+.toast-header {
+    background-color: red; /* Màu vàng */
+} 
+
+
+.button-like {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #007bff; /* Màu nền */
+	color: #fff; /* Màu chữ */
+	border: none; /* Loại bỏ đường viền */
+	border-radius: 5px; /* Bo góc */
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.3s; /* Hiệu ứng hover */
+}
+
+.paging {
+	display: inline-block;
+	padding: 5px 5px;
+	color: #000; /* Màu chữ */ 
+	border: none; /* Loại bỏ đường viền */
+	border-radius: 5px; /* Bo góc */ 
+	text-decoration: none; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+
+input[type=number] {
+	/* Xoá gạch dưới input */
+	-moz-appearance: textfield;
+}

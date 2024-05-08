@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from coderthemes.com/hyper/saas/form-editors.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:21:36 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Editors | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- SimpleMDE css -->
+        <link href="assets/css/vendor/simplemde.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Quill css -->
+        <link href="assets/css/vendor/quill.bubble.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/vendor/quill.core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/vendor/quill.snow.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+        <link rel="stylesheet" href="css/app.css">
+        <style>
+            /* CSS cho button */
+            .custom-button {
+              display: inline-block;
+              padding: 10px 20px;
+              font-size: 16px;
+              font-weight: bold;
+              text-align: center;
+              text-decoration: none;
+              color: #fff;
+              background-color: #67727e;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            .custom-button:hover {
+              background-color: #0056b3;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box; /* Đảm bảo padding và border không tăng kích thước của input */
+            }
+
+            /* CSS cho input khi hover */
+            input[type="text"]:hover {
+                border-color: #666; /* Màu viền khi hover */
+            }
+
+            /* CSS cho input khi focus */
+            input[type="text"]:focus {
+                outline: none; /* Xóa đường viền khi focus */
+                border-color: rgb(123, 147, 170); /* Màu viền khi focus */
+                box-shadow: 0 0 5px rgb(123, 147, 170); /* Hiển thị shadow khi focus */
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            .custom-file-upload {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+            } 
+        </style>
+    </head>
+
+    <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+    
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo_sm.png" alt="" height="25"> 
+                    </span> 
+                </a> 
+    
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav"> 
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="uil-home-alt"></i>
+                                <span> Admin </span>
+                            </a>
+                            <div class="collapse" id="sidebarDashboards">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.html">Thống kê bài viết</a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-user.html">Thống kê người dùng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
+
+                        <li class="side-nav-item">
+                            <a href="manage-news.html" class="side-nav-link">
+                                <i class="uil-newspaper"></i>
+                                <span> Quản lý bài viết </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-users.html" class="side-nav-link">
+                                <i class="uil-user-square"></i> 
+                                <span> Quản lý người dùng </span>
+                            </a>
+                        </li>
+                    </ul> 
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <div class="navbar-custom">
+                        <ul class="list-unstyled topbar-menu float-end mb-0">    
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <span class="account-user-avatar"> 
+                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                    <span>
+                                        <span class="account-user-name">Minh Duxng</span>
+                                        <span class="account-position">Admin</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span>Edit accout</span>
+                                    </a>   
+
+                                    <!-- item-->
+                                    <a href="#" onclick="logout()" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button> 
+                    </div>
+                    <!-- end Topbar -->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box"> 
+                                    <h4 class="header-title mt-2">Thêm bài viết</h4> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title --> 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding-bottom: 0px;">
+                                            <span class=""><h4>Title</h4></span>  
+                                        </li> 
+                                        <li class="list-group-item" style="padding-top: 0px;">
+                                            <input type="text" id="titleInput">
+                                        </li>
+                                    </ul> 
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="padding-bottom: 0px;">
+                                            <span class=""><h4>Thumbnail</h4></span>  
+                                        </li> 
+                                        <li class="list-group-item" style="padding-top: 0px; " >                                            
+                                            <input id="thumbnailInput" type="file" style="width: 150px; cursor: pointer;" onchange="handleFileSelect(event)" accept=".jpeg, .jpg, .png, .gif, .bmp, .tiff, .tif, .webp, .svg">
+                                            <img alt="" src="" id="thumbnailImg" style="height: 200px; width: 200px;">  
+                                        </li> 
+                                        <li style="list-style: none; margin-left: 24px;">
+                                            <label for="thumbnailInput" class="custom-file-upload">
+                                                Upload image
+                                            </label>  
+                                        </li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="mb-2">  
+                                                <div class="tab-content">
+                                                    <div class="tab-pane show active" id="hint-emoji-preview">
+                                                        <div id="snow-editor" style="height: 350px;">
+                                                            <h3><span class="ql-size-large">Hello World!</span></h3> 
+                                                        </div> 
+                                                    </div> <!-- end preview--> 
+                                                </div> <!-- end tab-content-->
+
+                                            </div>
+                                        </li> 
+                                    </ul> <!-- end list-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row --> 
+                        
+                        <button class="custom-button" onclick="create()">Create</button>
+                    </div> <!-- container -->
+
+                </div> <!-- content -->  
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+            <div id="toast" class="hidden">  
+        </div>
+        <!-- END wrapper --> 
+
+        <!-- bundle -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+        <!-- quill js -->
+        <script src="assets/js/vendor/quill.min.js"></script>
+        <!-- Init js-->
+        <script src="assets/js/pages/demo.quilljs.js"></script>
+
+        <!-- SimpleMDE js -->
+        <script src="assets/js/vendor/simplemde.min.js"></script>
+
+        <!-- SimpleMDE demo -->
+        <script src="assets/js/pages/demo.simplemde.js"></script>
+
+        <script src="js/update.js"></script>
+        <script src="js/utils/api.js"></script>
+        <script src="js/utils/storage.js"></script>
+    </body>
+
+<!-- Mirrored from coderthemes.com/hyper/saas/form-editors.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:21:37 GMT -->
+</html>

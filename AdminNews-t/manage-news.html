@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from coderthemes.com/hyper/saas/crm-management.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:50 GMT -->
+<head>
+        <meta charset="utf-8" />
+        <title>Management | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+
+        <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+
+    <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+    
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo_sm.png" alt="" height="25"> 
+                    </span> 
+                </a> 
+    
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav"> 
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="uil-home-alt"></i>
+                                <span> Admin </span>
+                            </a>
+                            <div class="collapse" id="sidebarDashboards">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.html">Thống kê bài viết</a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-user.html">Thống kê người dùng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
+
+                        <li class="side-nav-item">
+                            <a href="manage-news.html" class="side-nav-link">
+                                <i class="uil-newspaper"></i>
+                                <span> Quản lý bài viết </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-users.html" class="side-nav-link">
+                                <i class="uil-user-square"></i> 
+                                <span> Quản lý người dùng </span>
+                            </a>
+                        </li>
+                    </ul> 
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <div class="navbar-custom">
+                        <ul class="list-unstyled topbar-menu float-end mb-0">    
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link  nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <span class="account-user-avatar"> 
+                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                    <span>
+                                        <span class="account-user-name">Minh Duxng</span>
+                                        <span class="account-position">Admin</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span>Edit accout</span>
+                                    </a>   
+
+                                    <!-- item-->
+                                    <a href="#" onclick="logout()" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <button class="button-menu-mobile open-left">
+                            <i class="mdi mdi-menu"></i>
+                        </button> 
+                    </div>
+                    <!-- end Topbar -->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title" style="display: inline;">Management</h4> 
+                                    <button style="background-color: rgb(128, 178, 180); border: none; border-radius: 100%; margin-left: 80%;" onclick="createNews()"><i class="uil-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->     
+
+                        <div class="row">
+                            <div class="col-xxl-6">
+                                <div class="card">
+                                    <div class="card-body">  
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap mb-0" id="newsTbl">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ThumbNail</th>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Created Date</th> 
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->  
+                        </div>
+                    </div> <!-- container -->
+                </div> <!-- content --> 
+                
+
+                <div class="row" style="padding-top: 15px;">
+                    <div class="col-sm-12 col-md-5">
+                    </div>
+                    <div class="col-sm-12 col-md-7" style="align-content: flex-end;">
+                        <div class="dataTables_paginate paging_simple_numbers" id="table_paginate">
+                            <ul class="pagination">
+                                <li class="button-like" id="prev" >
+                                    &#60;
+                                </li>
+                                <li >
+                                    <input type="number" id="pageNumber" min="0" style="width: 30px; height: 100%;margin:0 2px;" onchange="changePageNum()"> 
+                                </li>
+                                <li class="paging" id="maxPage">/100
+                                </li>  
+                                <li class="button-like" id="next" >
+                                    &#62;
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+  
+
+        <div class="rightbar-overlay"></div>
+        <!-- /End-bar -->
+
+        <!-- bundle -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+
+        <!-- third party js --> 
+
+        <!-- demo app -->
+        <script src="js/manage-new.js"></script>
+        <script src="js/utils/api.js"></script>
+        <script src="js/utils/storage.js"></script>
+    </body>
+
+<!-- Mirrored from coderthemes.com/hyper/saas/crm-management.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:50 GMT -->
+</html>
