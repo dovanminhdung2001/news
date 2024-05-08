@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <!-- Mirrored from coderthemes.com/hyper/saas/crm-management.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 10:20:50 GMT -->
 <head>
         <meta charset="utf-8" />
@@ -25,18 +25,18 @@
         <div class="wrapper">
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
-    
+
                 <!-- LOGO -->
                 <a href="index.html" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/logo_sm.png" alt="" height="25"> 
-                    </span> 
-                </a> 
-    
+                        <img src="assets/images/logo_sm.png" alt="" height="25">
+                    </span>
+                </a>
+
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
 
                     <!--- Sidemenu -->
-                    <ul class="side-nav"> 
+                    <ul class="side-nav">
 
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
@@ -53,7 +53,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li> 
+                        </li>
 
                         <li class="side-nav-item">
                             <a href="manage-news.html" class="side-nav-link">
@@ -64,11 +64,11 @@
 
                         <li class="side-nav-item">
                             <a href="manage-users.html" class="side-nav-link">
-                                <i class="uil-user-square"></i> 
+                                <i class="uil-user-square"></i>
                                 <span> Quản lý người dùng </span>
                             </a>
                         </li>
-                    </ul> 
+                    </ul>
                     <!-- End Sidebar -->
 
                     <div class="clearfix"></div>
@@ -87,12 +87,12 @@
                 <div class="content">
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
-                        <ul class="list-unstyled topbar-menu float-end mb-0">    
+                        <ul class="list-unstyled topbar-menu float-end mb-0">
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link  nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                    <span class="account-user-avatar"> 
+                                    <span class="account-user-avatar">
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
@@ -105,7 +105,7 @@
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account-circle me-1"></i>
                                         <span>Edit accout</span>
-                                    </a>   
+                                    </a>
 
                                     <!-- item-->
                                     <a href="#" onclick="logout()" class="dropdown-item notify-item">
@@ -118,49 +118,49 @@
                         </ul>
                         <button class="button-menu-mobile open-left">
                             <i class="mdi mdi-menu"></i>
-                        </button> 
+                        </button>
                     </div>
                     <!-- end Topbar -->
 
                     <!-- Start Content-->
                     <div class="container-fluid">
-                        
+
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title" style="display: inline;">Management</h4> 
+                                    <h4 class="page-title" style="display: inline;">Management</h4>
                                     <button style="background-color: rgb(128, 178, 180); border: none; border-radius: 100%; margin-left: 80%;" onclick="createNews()"><i class="uil-plus"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title -->     
+                        <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xxl-6">
+                            <div class="col-xxl-12">
                                 <div class="card">
-                                    <div class="card-body">  
+                                    <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-centered table-nowrap mb-0" id="newsTbl">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">ThumbNail</th>
                                                         <th scope="col">Title</th>
-                                                        <th scope="col">Created Date</th> 
+                                                        <th scope="col">Created Date</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>  
+                                                <tbody>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                            </div> <!-- end col -->  
+                            </div> <!-- end col -->
                         </div>
                     </div> <!-- container -->
-                </div> <!-- content --> 
-                
+                </div> <!-- content -->
+
 
                 <div class="row" style="padding-top: 15px;">
                     <div class="col-sm-12 col-md-5">
@@ -172,10 +172,10 @@
                                     &#60;
                                 </li>
                                 <li >
-                                    <input type="number" id="pageNumber" min="0" style="width: 30px; height: 100%;margin:0 2px;" onchange="changePageNum()"> 
+                                    <input type="number" id="pageNumber" min="0" style="width: 30px; height: 100%;margin:0 2px;" onchange="changePageNum()">
                                 </li>
                                 <li class="paging" id="maxPage">/100
-                                </li>  
+                                </li>
                                 <li class="button-like" id="next" >
                                     &#62;
                                 </li>
@@ -194,7 +194,7 @@
         </div>
         <!-- END wrapper -->
 
-  
+
 
         <div class="rightbar-overlay"></div>
         <!-- /End-bar -->
@@ -203,7 +203,7 @@
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
 
-        <!-- third party js --> 
+        <!-- third party js -->
 
         <!-- demo app -->
         <script src="js/manage-new.js"></script>
