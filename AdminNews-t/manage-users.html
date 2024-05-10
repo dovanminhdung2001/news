@@ -15,6 +15,8 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
 
+
+        <link rel="stylesheet" href="css/app.css">
     </head>
 
     <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
@@ -105,7 +107,7 @@
                                     </a>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="javascript:logout(0);" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout me-1"></i>
                                         <span>Logout</span>
                                     </a>
@@ -136,39 +138,43 @@
                             <div class="col-xxl-12">
                                 <div class="card">
                                         <div class="table-responsive">
-                                            <table class="table table-centered table-nowrap mb-0">
+                                            <table class="table table-centered table-nowrap mb-0" id="usertbl">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">Employees Name</th>
-                                                        <th scope="col">Eamil Address</th>
-                                                        <th scope="col">Project Name</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Phone</th>
                                                         <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="flex-shrink-0">
-                                                                    <img class="rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Avtar image" width="31">
-                                                                </div>
-                                                                <div class="flex-grow-1 ms-2">
-                                                                    Jason Stovall
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>JasonJStovall@armyspy.com</td>
-                                                        <td>Figma Work</td>
-                                                        <td>
-                                                            <a href="javascript:void(0);" class="font-18 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="uil uil-trash"></i></a>
-                                                        </td>
-                                                    </tr> <!-- end tr -->
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div> <!-- end col -->
+                        </div>
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col-sm-12 col-md-5">
+                            </div>
+                            <div class="col-sm-12 col-md-7" style="align-content: flex-end;">
+                                <div class="dataTables_paginate paging_simple_numbers" id="table_paginate">
+                                    <ul class="pagination">
+                                        <li class="button-like" id="prev" >
+                                            &#60;
+                                        </li>
+                                        <li >
+                                            <input type="number" id="pageNumber" min="0" style="width: 30px; height: 100%;margin:0 2px;" onchange="changePageNum()">
+                                        </li>
+                                        <li class="paging" id="maxPage">/100
+                                        </li>
+                                        <li class="button-like" id="next" >
+                                            &#62;
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div> <!-- container -->
                 </div> <!-- content -->
@@ -329,45 +335,7 @@
                     </div>
 
 
-                    <!-- Left Sidebar-->
-                    <h5 class="mt-4">Left Sidebar</h5>
-                    <hr class="mt-1" />
-                    <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="theme" value="default" id="default-check">
-                        <label class="form-check-label" for="default-check">Default</label>
-                    </div>
-
-                    <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="theme" value="light" id="light-check" checked>
-                        <label class="form-check-label" for="light-check">Light</label>
-                    </div>
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input" type="checkbox" name="theme" value="dark" id="dark-check">
-                        <label class="form-check-label" for="dark-check">Dark</label>
-                    </div>
-
-                    <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="fixed" id="fixed-check" checked>
-                        <label class="form-check-label" for="fixed-check">Fixed</label>
-                    </div>
-
-                    <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="condensed" id="condensed-check">
-                        <label class="form-check-label" for="condensed-check">Condensed</label>
-                    </div>
-
-                    <div class="form-check form-switch mb-1">
-                        <input class="form-check-input" type="checkbox" name="compact" value="scrollable" id="scrollable-check">
-                        <label class="form-check-label" for="scrollable-check">Scrollable</label>
-                    </div>
-
-                    <div class="d-grid mt-4">
-                        <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-
-                        <a href="https://themes.getbootstrap.com/product/hyper-responsive-admin-dashboard-template/"
-                            class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
-                    </div>
+                    
                 </div> <!-- end padding-->
 
             </div>
@@ -383,8 +351,7 @@
         <!-- third party js -->
         <script src="assets/js/vendor/apexcharts.min.js"></script>
 
-        <!-- demo app -->
-        <script src="assets/js/pages/demo.crm-management.js"></script>
+        <!-- demo app --> 
         <script src="js/manage-user.js"></script>
         <script src="js/utils/api.js"></script>
         <script src="js/utils/storage.js"></script>

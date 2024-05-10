@@ -7,8 +7,11 @@ import com.example.base3_1.repository.RoleRepository;
 import com.example.base3_1.repository.UserRepository;
 import com.example.base3_1.security.PasswordGenerator;
 import com.example.base3_1.service.UserService;
+import com.example.base3_1.utils.App;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -67,6 +70,23 @@ public class UserServiceImpl implements UserService {
             user.setGender(dto.getGender());
         if (StringUtils.isNotBlank(dto.getDescription()))
             user.setDescription(dto.getDescription());
+
+        return userRepository.save(user);
+    }
+
+    @Override
+    public Page<User> page(Pageable pageable) {
+        return userRepository.findAllByRole_Id(pageable, App.ROLE_USER_ID);
+    }
+
+    @Override
+    public User delete(Integer id, Boolean isActive) {
+        User user = userRepository.findById(id).get();
+
+        if (user == null)
+            throw new RuntimeException("user not found");
+
+        user.setIsActive(!isActive);
 
         return userRepository.save(user);
     }
