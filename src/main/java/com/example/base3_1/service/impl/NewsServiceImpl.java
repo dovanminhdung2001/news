@@ -109,7 +109,7 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public Page<News> home(Pageable pageable, Boolean newest) {
         if(newest)
-            return newsRepository.findAllByDeleted(pageable, false);
+            return newsRepository.findAllByDeletedOrderByCreatedDateDesc(pageable, false);
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, -30);
@@ -119,7 +119,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Page<News> page(Pageable pageable) {
-        return newsRepository.findAll(pageable);
+        return newsRepository.findAllByOrderByCreatedDateDesc(pageable);
     }
 
     @Override

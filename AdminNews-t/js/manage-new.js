@@ -27,9 +27,20 @@ function deleted(id, deleted) {
 function requestApi(page) {
     getAPIBody('get', `${ROOT}/admin/news/page?page=${page}&size=${size}`)
     .then(responseData => {
-        var html = ``; 
+        var html = `<thead>
+        <tr>
+            <th scope="col">ThumbNail</th>
+            <th scope="col">Title</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>`; 
 
         responseData.content.forEach(news => {
+            var title = news.title;
+            if (title.length > 100) {
+                title = title.substring(0, 500) + '...';
+            }
             html += `
                 <tr>
                     <td>
@@ -39,7 +50,7 @@ function requestApi(page) {
                             </div> 
                         </div>
                     </td>
-                    <td>${news.title}</td>
+                    <td style="max-width: 200px; word-wrap: break-word; white-space: normal;">${news.title}</td>
                     <td>${news.createdDate}</td> 
                     <td>
                         <a href="#" onclick="update(${news.id})" class="font-18 text-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>

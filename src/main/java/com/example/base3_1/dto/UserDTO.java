@@ -20,7 +20,7 @@ public class UserDTO {
     private String description;
     private Role role;
     private Integer roleId;
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "GMT+7")
     private Date birthDate;
     @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
     private Date createdDate;
