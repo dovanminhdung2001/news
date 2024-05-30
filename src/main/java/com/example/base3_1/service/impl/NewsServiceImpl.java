@@ -16,7 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -86,14 +85,15 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<News> bookmark(Integer id, Boolean favor) {
+    public List<News> bookmark(Integer id, Boolean favor, Integer userId) {
         News news = newsRepository.findById(id).get();
 
         if (news == null)
             throw new RuntimeException("News not found");
 
-        UserPrincipal currentUser = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findById(currentUser.getId()).get();
+//        UserPrincipal currentUser = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication();
+
+        User user = userRepository.findById(userId).get();
 
         if (favor && !user.getBookmarks().contains(news)) {
             user.getBookmarks().add(news);
@@ -132,5 +132,10 @@ public class NewsServiceImpl implements NewsService {
         news.setDeleted(!deleted);
 
         return newsRepository.save(news);
+    }
+
+    @Override
+    public Page<News> listBookMark(Pageable pageable, Integer userId) {
+        return newsRepository.findAllByBookmarkedBy_IdAndDeletedFalse(pageable, userId);
     }
 }

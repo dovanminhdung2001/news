@@ -36,8 +36,13 @@ public class NewsController {
     }
 
     @PostMapping("/user/news/bookmark")
-    ResponseEntity<?> get(@RequestParam Integer id, @RequestParam Boolean favor) {
-        return ResponseEntity.ok(newsService.bookmark(id, favor));
+    ResponseEntity<?> get(@RequestParam Integer id, @RequestParam Boolean favor, @RequestParam Integer userId) {
+        return ResponseEntity.ok(newsService.bookmark(id, favor, userId));
+    }
+
+    @GetMapping("/user/news/list-bookmark")
+    ResponseEntity<?> getListBookmark(Pageable pageable, @RequestParam Integer userId) {
+        return ResponseEntity.ok(newsService.listBookMark(pageable, userId));
     }
 
     @GetMapping("/news/home")

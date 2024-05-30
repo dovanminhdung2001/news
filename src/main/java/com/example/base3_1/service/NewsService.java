@@ -16,11 +16,13 @@ public interface NewsService {
 
     Page<News> find(Pageable pageable, String keys);
 
-    List<News> bookmark(Integer id, Boolean favor);
+    List<News> bookmark(Integer id, Boolean favor, Integer userId);
 
     Page<News> home(Pageable pageable, Boolean newest);
 
     Page<News> page(Pageable pageable);
 
     News delete(Integer id, Boolean deleted);
+
+    Page<News> listBookMark(Pageable pageable, Integer userId);
 }

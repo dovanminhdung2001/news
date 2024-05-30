@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "phone"))
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

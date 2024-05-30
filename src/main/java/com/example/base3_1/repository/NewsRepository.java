@@ -17,4 +17,6 @@ public interface NewsRepository extends JpaRepository<News, Integer> {
 //            "ORDER BY n.view DESC")
             "ORDER BY n.createdDate DESC")
     Page<News> findHotNews(@Param("startDate") Date startDate, Pageable pageable);
+
+    Page<News> findAllByBookmarkedBy_IdAndDeletedFalse(Pageable pageable, Integer userId);
 }
