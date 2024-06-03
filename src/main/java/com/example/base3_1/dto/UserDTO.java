@@ -1,6 +1,5 @@
 package com.example.base3_1.dto;
 
-import com.example.base3_1.entity.Bookmark;
 import com.example.base3_1.entity.Role;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -27,7 +26,6 @@ public class UserDTO {
     @JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
     private Date updatedDate;
     private Boolean isActive = true;
-    private List<Bookmark> bookmarks;
     public UserDTO() {
     }
 }

@@ -1,5 +1,6 @@
 package com.example.base3_1.controller;
 
+import com.example.base3_1.dto.MessageResponseDTO;
 import com.example.base3_1.dto.NewsDTO;
 import com.example.base3_1.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class NewsController {
     @GetMapping("/user/news/list-bookmark")
     ResponseEntity<?> getListBookmark(Pageable pageable, @RequestParam Integer userId) {
         return ResponseEntity.ok(newsService.listBookMark(pageable, userId));
+    }
+
+    @GetMapping("/user/news/check-bookmark")
+    ResponseEntity<?> checkBookmark(@RequestParam Integer newsId, @RequestParam Integer userId) {
+        return ResponseEntity.ok(new MessageResponseDTO(newsService.checkBookmark(newsId, userId)));
     }
 
     @GetMapping("/news/home")

@@ -25,4 +25,6 @@ public interface NewsService {
     News delete(Integer id, Boolean deleted);
 
     Page<News> listBookMark(Pageable pageable, Integer userId);
+
+    String checkBookmark(Integer newsId, Integer userId);
 }

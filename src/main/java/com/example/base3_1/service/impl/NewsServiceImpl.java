@@ -25,6 +25,7 @@ public class NewsServiceImpl implements NewsService {
     @Autowired
     private UserRepository userRepository;
 
+
     @Override
     public News create(NewsDTO dto) {
         News news = new News();
@@ -137,5 +138,10 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public Page<News> listBookMark(Pageable pageable, Integer userId) {
         return newsRepository.findAllByBookmarkedBy_IdAndDeletedFalse(pageable, userId);
+    }
+
+    @Override
+    public String checkBookmark(Integer newsId, Integer userId) {
+        return "" + newsRepository.existsByIdAndBookmarkedBy_Id(newsId, userId);
     }
 }
