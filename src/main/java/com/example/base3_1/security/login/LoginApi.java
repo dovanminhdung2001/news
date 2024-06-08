@@ -37,8 +37,12 @@ public class LoginApi {
     public ResponseEntity<?> login(@RequestParam("phone") String phone,
                                    @RequestParam("password") String password) {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(phone, password));
             User user = userService.findByPhone(phone);
+
+            if (user == null)
+                throw new RuntimeException("Phone not exist");
+
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(phone, password));
 
             String accessToken = jwtTokenService.createToken(phone);
             String refreshToken = jwtTokenService.createRefreshToken(phone);
