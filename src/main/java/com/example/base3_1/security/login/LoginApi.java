@@ -39,8 +39,8 @@ public class LoginApi {
         try {
             User user = userService.findByPhone(phone);
 
-            if (user == null)
-                throw new RuntimeException("Phone not exist");
+            if (user.getIsActive() == false)
+                return new ResponseEntity<>(new MessageResponseDTO("Account not active"), HttpStatus.UNAUTHORIZED);
 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(phone, password));
 
