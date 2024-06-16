@@ -7,33 +7,34 @@ function login() {
     else if (password.value.trim() === '')
         showToast('Blank Password');
     else {
-        fetch(`${ROOT}/login?phone=${email.value.trim()}&password=${password.value.trim()}`, {
+        fetch(`${ROOT}/login/admin?phone=${email.value.trim()}&password=${password.value.trim()}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            },
+            }
         })
-        .then(responseData => { 
-            if (responseData.ok) {
-                responseData.json().then(body => {
-                    console.log(body);
-                    if(body.data.role.id !== 1)  
-                        showToast('Please use admin account');
-                    else {
-                        saveSession('accessToken', body.accessToken);
-                        saveSession('refreshToken', body.refreshToken);
-                        saveSession('adminId', body.data.id);
-                        window.location.href = 'manage-news.html';
-                    } 
-                });
+        .then(response => {
+            if (response.ok) {
+                return response.json();
             } else {
-                showToast('Wrong password or username')
-            } 
+                showToast('Wrong password or username');
+            }
         })
-        .catch(function(error) {               
+        .then(body => {
+            console.log(body);
+            if (body.data.role.id !== 1) {
+                showToast('Please use admin account');
+            } else {
+                saveSession('accessToken', body.accessToken);
+                saveSession('refreshToken', body.refreshToken);
+                saveSession('adminId', body.data.id);
+                window.location.href = 'manage-news.html';
+            }
+        })
+        .catch(error => {
             console.log(error);
-            showToast(error.response.message); 
-        }); 
+            showToast(error.message);
+        });
     }
 }
 

@@ -6,6 +6,7 @@ import com.example.base3_1.entity.User;
 import com.example.base3_1.security.jwt.JwtResponseDTO;
 import com.example.base3_1.security.jwt.JwtTokenService;
 import com.example.base3_1.service.UserService;
+import com.example.base3_1.utils.Const;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,28 @@ public class LoginApi {
 
             if (user.getIsActive() == false)
                 return new ResponseEntity<>(new MessageResponseDTO("Account not active"), HttpStatus.UNAUTHORIZED);
+
+            if (user.getRole().getId() != Const.ROLE_ID_USER)
+                return new ResponseEntity<>(new MessageResponseDTO("Wrong phone or password"), HttpStatus.UNAUTHORIZED);
+
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(phone, password));
+
+            String accessToken = jwtTokenService.createToken(phone);
+            String refreshToken = jwtTokenService.createRefreshToken(phone);
+
+            return ResponseEntity.ok(new JwtResponseDTO(accessToken, refreshToken, user));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponseDTO(e.getMessage(), e));
+        }
+    }
+
+    @PostMapping("/api/login/admin")
+    public ResponseEntity<?> loginAdmin(@RequestParam("phone") String phone, @RequestParam("password") String password) {
+        try {
+            User user = userService.findByPhone(phone);
+
+            if (user.getRole().getId() != Const.ROLE_ID_ADMIN)
+                return new ResponseEntity<>(new MessageResponseDTO("Wrong phone or password"), HttpStatus.UNAUTHORIZED);
 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(phone, password));
 
