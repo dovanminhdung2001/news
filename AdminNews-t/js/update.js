@@ -3,15 +3,30 @@ var thumbnailInput = document.getElementById('thumbnailInput');
 var thumbnailImg = document.getElementById('thumbnailImg');
 var editor = document.querySelector('#snow-editor .ql-editor');
 var toast = document.getElementById('toast');
+var hashtagInput = document.getElementById('hashtagInput');
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
     var id = getSession('newsId');
 
     getAPIBody('get', `${ROOT}/admin/news/get?id=${id}`)
-    .then(responseData => {
+    .then(responseData => { 
         titleInput.value = responseData.title;
         thumbnailImg.src = responseData.thumbnail;
         editor.innerHTML = responseData.contentHtml;
+        
+        
+        if (responseData.hashtags.length) {
+            var hashtagTxt = ''; 
+            responseData.hashtags.forEach(hashtag => { 
+                hashtagTxt += hashtag.name + ', '; 
+            }); 
+            hashtagTxt = hashtagTxt.substring(0, hashtagTxt.length - 2);
+        
+            console.log(hashtagTxt); // Kiểm tra xem chuỗi đã chuẩn chưa
+            
+            hashtagInput.value = hashtagTxt;
+        }
     });
 })
 
@@ -22,12 +37,19 @@ function create() {
     else if (editor.innerText.trim() === '')
         showToast('Emtpy Content');
     else {
+        var hashtagArr = [];
+        var hashtagStr = hashtagInput.value.trim().replace(/[^a-zA-Z0-9À-ỹ ,_]/g, '');;
+
+        if (hashtagStr !== '')  
+            hashtagArr = hashtagStr.toLowerCase().replace(/\s+/g, '').split(',');  
+
         var payload = {
             id: getSession('newsId'),
             title: titleInput.value.trim(),
             thumbnail: thumbnailImg.src,
             contentHtml: editor.innerHTML,
             contentText: editor.innerText.trim(),
+            hashtagListStr: hashtagArr
         } ;
         console.log(`Create news: `);
         console.log(payload);

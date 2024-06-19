@@ -35,10 +35,6 @@ public class News {
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+7")
     private Date updatedDate;
     private boolean deleted;
-
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<Bookmark> bookmarks;
     @ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "news_hashtag",

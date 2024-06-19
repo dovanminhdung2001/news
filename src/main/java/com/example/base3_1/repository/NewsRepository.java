@@ -20,4 +20,5 @@ public interface NewsRepository extends JpaRepository<News, Integer> {
 
     Page<News> findAllByBookmarkedBy_IdAndDeletedFalse(Pageable pageable, Integer userId);
     boolean existsByIdAndBookmarkedBy_Id(Integer id, Integer userId);
+    Page<News> findAllByHashtagsName(Pageable pageable, String name);
 }

@@ -31,9 +31,15 @@ public class NewsController {
     }
 
     @GetMapping("/news/find")
-    ResponseEntity<?> get(Pageable pageable, @RequestParam String keys) {
-        System.out.println(keys);
-        return ResponseEntity.ok(newsService.find(pageable, keys));
+    ResponseEntity<?> get(
+            Pageable pageable,
+            @RequestParam(required = false) String keys,
+            @RequestParam(required = false) String hashtag
+            ) {
+
+        return keys != null
+                ? ResponseEntity.ok(newsService.find(pageable, keys))
+                : ResponseEntity.ok(newsService.findByHashtag(pageable, hashtag));
     }
 
     @PostMapping("/user/news/bookmark")

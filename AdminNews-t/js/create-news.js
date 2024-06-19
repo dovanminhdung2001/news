@@ -3,6 +3,7 @@ var thumbnailInput = document.getElementById('thumbnailInput');
 var thumbnailImg = document.getElementById('thumbnailImg');
 var editor = document.querySelector('#snow-editor .ql-editor');
 var toast = document.getElementById('toast');
+var hashtagInput = document.getElementById('hashtagInput');
 
 var thumbnailSrc = null;
 
@@ -11,18 +12,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
 })
 
 
-function create() {   
+function create() { 
     if (titleInput.value.trim() === '')
         showToast('Empty Title');
     else if (editor.innerText.trim() === '')
         showToast('Emtpy Content');
-    else { 
+    else {  
+        var hashtagArr = [];
+        var hashtagStr = hashtagInput.value.trim().replace(/[^a-zA-Z0-9À-ỹ ,_]/g, '');;
+
+        if (hashtagStr !== '')  
+            hashtagArr = hashtagStr.toLowerCase().replace(/\s+/g, '').split(',');  
+
         var payload = {
             title: titleInput.value.trim(),
             thumbnail: thumbnailImg.src,
             contentHtml: editor.innerHTML,  
             contentText: editor.innerText.trim(), 
-        } ;
+            hashtagListStr: hashtagArr
+        };
+
         console.log(`Create news: `);
         console.log(payload);
 

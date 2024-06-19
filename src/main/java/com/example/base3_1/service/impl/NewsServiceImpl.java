@@ -1,35 +1,57 @@
 package com.example.base3_1.service.impl;
 
 import com.example.base3_1.dto.NewsDTO;
+import com.example.base3_1.entity.Hashtag;
 import com.example.base3_1.entity.News;
 import com.example.base3_1.entity.User;
+import com.example.base3_1.repository.HashtagRepository;
 import com.example.base3_1.repository.NewsRepository;
 import com.example.base3_1.repository.UserRepository;
 import com.example.base3_1.security.principal.UserPrincipal;
 import com.example.base3_1.service.NewsService;
 import com.example.base3_1.utils.DateUtils;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class NewsServiceImpl implements NewsService {
-    @Autowired
-    private NewsRepository newsRepository;
-    @Autowired
-    private UserRepository userRepository;
-
+    private final NewsRepository newsRepository;
+    private final UserRepository userRepository;
+    private final HashtagRepository hashtagRepository;
 
     @Override
     public News create(NewsDTO dto) {
         News news = new News();
+        List<Hashtag> hashtags = new ArrayList<>();
 
+        if (!dto.getHashtagListStr().isEmpty()) {
+             hashtags = dto.getHashtagListStr().stream()
+                    .map(tagName -> {
+                        Hashtag hashtag = hashtagRepository.findByName(tagName);
+                        if (hashtag == null) {
+                            hashtag = new Hashtag();
+                            hashtag.setName(tagName);
+                            hashtag.setCreatedDate(DateUtils.now());
+                            hashtag = hashtagRepository.save(hashtag);
+                        }
+                        return hashtag;
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        news.setHashtags(hashtags);
         news.setTitle(dto.getTitle());
         news.setThumbnail(dto.getThumbnail());
         news.setContentHtml(dto.getContentHtml());
@@ -44,10 +66,27 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public News update(NewsDTO dto) {
         News news = newsRepository.findById(dto.getId()).get();
+        List<Hashtag> hashtags = new ArrayList<>();
 
         if (news == null)
             throw new RuntimeException("News not found");
 
+        if (!dto.getHashtagListStr().isEmpty()) {
+            hashtags = dto.getHashtagListStr().stream()
+                    .map(tagName -> {
+                        Hashtag hashtag = hashtagRepository.findByName(tagName);
+                        if (hashtag == null) {
+                            hashtag = new Hashtag();
+                            hashtag.setName(tagName);
+                            hashtag.setCreatedDate(DateUtils.now());
+                            hashtag = hashtagRepository.save(hashtag);
+                        }
+                        return hashtag;
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        news.setHashtags(hashtags);
         news.setTitle(dto.getTitle());
         news.setThumbnail(dto.getThumbnail());
         news.setContentHtml(dto.getContentHtml());
@@ -81,8 +120,18 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public Page<News> find(Pageable pageable, String key) {
         Page<News> page = newsRepository.findAllByTitleContainingIgnoreCase(pageable, key);
-
         return page;
+    }
+
+    @Override
+    public Page<News> findByHashtag(Pageable pageable, String hashtagName) {
+        Hashtag hashtag = hashtagRepository.findByName(hashtagName);
+
+        if (hashtag == null || hashtagName == null || hashtagName.isEmpty()) {
+            return new PageImpl<>(new ArrayList<>(), pageable, 0);
+        }
+
+        return newsRepository.findAllByHashtagsName(pageable, hashtagName);
     }
 
     @Override

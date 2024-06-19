@@ -15,6 +15,7 @@ public interface NewsService {
     News get(Integer id);
 
     Page<News> find(Pageable pageable, String keys);
+    Page<News> findByHashtag(Pageable pageable, String hashtag);
 
     List<News> bookmark(Integer id, Boolean favor, Integer userId);
 

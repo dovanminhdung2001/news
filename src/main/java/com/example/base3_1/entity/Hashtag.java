@@ -16,6 +16,7 @@ public class Hashtag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique=true)
     private String name;
     @ManyToMany(mappedBy = "hashtags")
     @JsonIgnore

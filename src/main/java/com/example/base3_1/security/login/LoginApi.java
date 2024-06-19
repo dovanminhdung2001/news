@@ -37,9 +37,11 @@ public class LoginApi {
     @PostMapping("/api/login")
     public ResponseEntity<?> login(@RequestParam("phone") String phone,
                                    @RequestParam("password") String password) {
-        try {
+//        try {
             User user = userService.findByPhone(phone);
 
+            if (user == null)
+                return new ResponseEntity<>(new MessageResponseDTO("Wrong phone or password"), HttpStatus.UNAUTHORIZED);
             if (user.getIsActive() == false)
                 return new ResponseEntity<>(new MessageResponseDTO("Account not active"), HttpStatus.UNAUTHORIZED);
 
@@ -52,14 +54,14 @@ public class LoginApi {
             String refreshToken = jwtTokenService.createRefreshToken(phone);
 
             return ResponseEntity.ok(new JwtResponseDTO(accessToken, refreshToken, user));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new MessageResponseDTO(e.getMessage(), e));
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body(new MessageResponseDTO(e.getMessage(), e));
+//        }
     }
 
     @PostMapping("/api/login/admin")
     public ResponseEntity<?> loginAdmin(@RequestParam("phone") String phone, @RequestParam("password") String password) {
-        try {
+//        try {
             User user = userService.findByPhone(phone);
 
             if (user.getRole().getId() != Const.ROLE_ID_ADMIN)
@@ -71,9 +73,9 @@ public class LoginApi {
             String refreshToken = jwtTokenService.createRefreshToken(phone);
 
             return ResponseEntity.ok(new JwtResponseDTO(accessToken, refreshToken, user));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new MessageResponseDTO(e.getMessage(), e));
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body(new MessageResponseDTO(e.getMessage(), e));
+//        }
     }
 
     @PostMapping("/api/refresh")

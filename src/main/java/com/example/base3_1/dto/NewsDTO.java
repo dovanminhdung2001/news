@@ -22,4 +22,5 @@ public class NewsDTO {
     private Date updatedDate;
     private boolean deleted;
     private List<Hashtag> hashtags;
+    private List<String> hashtagListStr;
 }
