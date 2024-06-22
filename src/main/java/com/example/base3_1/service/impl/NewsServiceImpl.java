@@ -119,6 +119,12 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Page<News> find(Pageable pageable, String key) {
+        if (key == null || key.trim().equals("#") || key.trim().equals(""))
+            return home(pageable, true);
+
+        if (key.startsWith("#"))
+            return findByHashtag(pageable, key.substring(1));
+
         Page<News> page = newsRepository.findAllByTitleContainingIgnoreCase(pageable, key);
         return page;
     }
