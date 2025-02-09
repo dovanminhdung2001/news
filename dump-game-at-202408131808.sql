@@ -1,0 +1,63 @@
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+--
+-- Host: localhost    Database: game-at
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.6.18-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `items`
+--
+
+DROP TABLE IF EXISTS `items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `items` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` int(11) DEFAULT NULL,
+  `buildingId` int(11) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `energy` int(11) DEFAULT NULL,
+  `gemPrice` int(11) DEFAULT NULL,
+  `goldPrice` int(11) DEFAULT NULL,
+  `isSell` int(11) DEFAULT NULL,
+  `itemName` text DEFAULT NULL,
+  `itemType` int(11) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `link` text DEFAULT NULL,
+  `timeExpired` int(11) DEFAULT NULL,
+  `xp` int(11) DEFAULT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `items`
+--
+
+LOCK TABLES `items` WRITE;
+/*!40000 ALTER TABLE `items` DISABLE KEYS */;
+INSERT INTO `items` VALUES (1,NULL,NULL,NULL,NULL,1,7,0,'Grass',0,1,'Assets/OutGameFarm/Sprites/UI/code/New folder 1/la1.png',NULL,NULL),(2,NULL,NULL,NULL,NULL,1,7,0,'Wood',0,1,'Assets/OutGameFarm/Sprites/UI/Pop up Upgrade/NEW/Layer 41.png',NULL,NULL),(3,NULL,NULL,NULL,NULL,1,7,0,'Stone',0,1,'Assets/OutGameFarm/Sprites/UI/Pop up Upgrade/NEW/Layer 30.png',NULL,NULL),(4,NULL,48,NULL,NULL,3,12,1,'String',1,6,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/String.png',300,NULL),(5,NULL,48,NULL,NULL,6,17,1,'Rope',1,9,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Rope.png',900,NULL),(6,NULL,48,NULL,NULL,36,32,1,'Cloth',1,29,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Cloth.png',2400,NULL),(7,NULL,43,NULL,NULL,4,11,1,'Woodenplan',1,4,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Wooden_Plan.png',300,NULL),(8,NULL,43,NULL,NULL,10,17,1,'Pallet',1,17,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/pallet.png',900,NULL),(9,NULL,43,NULL,NULL,55,34,1,'Woodveneer',1,33,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Wood_Veneer.png',2100,NULL),(10,NULL,49,NULL,NULL,9,12,1,'Quartzsand',1,6,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Quartz_Sand.png',360,NULL),(11,NULL,49,NULL,NULL,21,17,1,'Cement',1,19,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Cement.png',1080,NULL),(12,NULL,49,NULL,NULL,36,40,1,'Bricks',1,29,'Assets/OutGameFarm/Texture2D/Art/Farm/Material/Bricks.png',1800,NULL),(13,NULL,66,NULL,NULL,1,10,1,'Cowfeed',1,5,'Assets/OutGameFarm/Sprites/UI/Pop up BARN/bao_do_an_bo (1).png',300,NULL),(14,NULL,66,NULL,NULL,4,15,1,'Chickenfeed',1,8,'Assets/OutGameFarm/Sprites/UI/Pop up BARN/bao_do_an_ga (1).png',600,NULL),(15,NULL,66,NULL,NULL,7,24,1,'Pigfeed',1,20,'Assets/OutGameFarm/Sprites/UI/Pop up BARN/bao_do_an_lon (1).png',2400,NULL),(16,NULL,47,NULL,NULL,6,12,1,'Milk',3,5,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/milk.png',1800,NULL),(17,NULL,62,NULL,NULL,6,25,1,'Cream',3,9,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Cream.png',900,NULL),(18,NULL,62,NULL,NULL,9,34,1,'Cheese',3,14,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Cheese.png',900,NULL),(19,NULL,62,NULL,NULL,16,70,1,'Butter',3,19,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Butter.png',900,NULL),(20,NULL,62,NULL,NULL,70,72,1,'Tofu',3,27,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Tofu.png',3600,NULL),(21,NULL,62,NULL,NULL,135,150,1,'Soymilk',3,37,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/soy_milk.png',5400,NULL),(22,NULL,61,NULL,NULL,7,17,1,'Egg',3,8,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/egg.png',3600,NULL),(23,NULL,42,NULL,NULL,3,11,1,'Bread',3,3,'Assets/OutGameFarm/Sprites/UI/Pop up san xuat/Bread.png',300,NULL),(24,NULL,42,NULL,NULL,7,54,1,'Cookies',3,12,'Assets/OutGameFarm/Sprites/UI/Pop up san xuat/Cookies.png',1800,NULL),(25,NULL,42,NULL,NULL,12,17,1,'Popcorn',3,8,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Pop_corn.png',900,NULL),(26,NULL,42,NULL,NULL,33,83,1,'Cheeseburger',3,20,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Cheese_Burger.png',3600,NULL),(27,NULL,42,NULL,NULL,39,40,1,'Cornbread',3,10,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Cornbread.png',1200,NULL),(28,NULL,42,NULL,NULL,61,82,1,'Pumpkin cookie',3,15,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Pumpkin_bread.png',2700,NULL),(29,NULL,42,NULL,NULL,82,57,1,'carrotbread',3,40,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Carrot bread.png',4500,NULL),(30,NULL,42,NULL,NULL,99,89,1,'strawbearrybread',3,40,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Strawbearry_bread.png',5400,NULL),(31,NULL,42,NULL,NULL,123,61,1,'sandwich',3,47,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Sandwich_dau.png',7200,NULL),(32,NULL,42,NULL,NULL,138,93,1,'cheesecake',3,50,'Assets/OutGameFarm/Sprites/UI/code/Khánh/Cheese_Cake.png',9000,NULL),(33,NULL,77,NULL,NULL,1,10,1,'wheat',0,2,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/lua/wheat.png',180,NULL),(34,NULL,77,NULL,NULL,2,12,1,'corn',0,8,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/ngo/corn.png',300,NULL),(35,NULL,77,NULL,NULL,4,19,1,'pumpkin',0,15,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/bingo/Pumpkin.png',900,NULL),(36,NULL,77,NULL,NULL,7,27,1,'carrot',0,20,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/carot/carrot.png',3600,NULL),(37,NULL,77,NULL,NULL,9,54,1,'soybean',0,27,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/dauhalan/Soybeans.png',NULL,NULL),(38,NULL,77,NULL,NULL,12,54,1,'strawberry',0,40,'Assets/OutGameFarm/Texture2D/Art/Farm/Item_Field/dautay/strawberry.png',5400,NULL),(39,NULL,70,NULL,NULL,7,32,1,'bacon',3,20,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/bacons.png',3600,NULL),(40,NULL,70,NULL,NULL,22,65,1,'baconwithegg',3,20,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Bacon_with_Eggs.png',1800,NULL),(41,NULL,70,NULL,NULL,37,70,1,'corndog',3,25,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Corn_Dog.png',2700,NULL),(42,NULL,70,NULL,NULL,75,72,1,'coneydog',3,27,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Cone_Dog.png',3600,NULL),(43,NULL,70,NULL,NULL,97,77,1,'ricecasserole',3,34,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Rice_Casserole.png',5400,NULL),(44,NULL,70,NULL,NULL,120,160,1,'sandwichcheesewithbacon',3,45,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Sandwich_cheese with_bacon.png',7200,NULL),(45,NULL,59,NULL,NULL,21,5,1,'cornmilk',3,10,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/CornMilk.png',1800,NULL),(46,NULL,59,NULL,NULL,25,15,1,'blueberrymilk',3,21,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Blueberry_Milk.png',2700,NULL),(47,NULL,59,NULL,NULL,28,16,1,'orangejuice',3,25,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Orange_Juice.png',3600,NULL),(48,NULL,59,NULL,NULL,33,23,1,'applejuice',3,43,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Apple_Juice.png',5400,NULL),(49,NULL,59,NULL,NULL,63,25,1,'grapejuice',3,52,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Nhojuice.png',7200,NULL),(50,NULL,59,NULL,NULL,93,5,1,'tropicaljuice',3,62,'Assets/OutGameFarm/Texture2D/Art/Farm/Food/Pineapple_ juice.png',7200,NULL),(51,NULL,NULL,NULL,NULL,21,5,1,'orange',0,25,'Assets/OutGameFarm/Texture2D/Art/Farm/tree/Orange/cam.png',1800,NULL),(52,NULL,NULL,NULL,NULL,34,5,1,'apple',0,34,'Assets/OutGameFarm/Texture2D/Art/Farm/tree/Apple/tao.png',3000,NULL),(53,NULL,NULL,NULL,NULL,61,5,1,'grape',0,52,'Assets/OutGameFarm/Texture2D/Art/Farm/tree/Nho/nho.png',3600,NULL),(54,NULL,NULL,NULL,NULL,NULL,NULL,0,'key',2,NULL,'Assets/OutGameFarm/Texture2D/Art/ItemSpecial/key.png',NULL,NULL),(55,NULL,NULL,NULL,NULL,NULL,NULL,0,'shovel',2,NULL,'Assets/OutGameFarm/Texture2D/Art/ItemSpecial/xeng.png',NULL,NULL),(56,NULL,NULL,NULL,NULL,NULL,NULL,0,'pickaxe',2,NULL,'Assets/OutGameFarm/Texture2D/Art/ItemSpecial/pickaxe.png',NULL,NULL),(57,NULL,NULL,NULL,NULL,NULL,NULL,0,'saw',2,NULL,'Assets/OutGameFarm/Texture2D/Art/ItemSpecial/cua.png',NULL,NULL),(58,NULL,NULL,NULL,NULL,NULL,NULL,0,'paddleitem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/ChuaSua/paddle.prefab',NULL,NULL),(59,NULL,NULL,NULL,NULL,NULL,NULL,0,'anchoritem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/anchor.prefab',NULL,NULL),(60,NULL,NULL,NULL,NULL,NULL,NULL,0,'bridgeropesitem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/bridgeropes.prefab',NULL,NULL),(61,NULL,NULL,NULL,NULL,NULL,NULL,0,'flower1item',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/flower1.prefab',NULL,NULL),(62,NULL,NULL,NULL,NULL,NULL,NULL,0,'flower2item',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/flower2.prefab',NULL,NULL),(63,NULL,NULL,NULL,NULL,NULL,NULL,0,'eggpetitem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/eggpet.prefab',NULL,NULL),(64,NULL,NULL,NULL,NULL,NULL,NULL,0,'oldkeyitem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/oldKey.prefab',NULL,NULL),(65,NULL,NULL,NULL,NULL,NULL,NULL,0,'rubbishracketitem',2,NULL,'Assets/OutGameFarm/Prefabs/XXXFarmMap/Gatherable/rubbishracket.prefab',NULL,NULL),(66,NULL,NULL,NULL,NULL,NULL,NULL,1,'cannon',6,NULL,'Assets/JellyGarden/Resources/NewParticle/EffectPuzzle/Booster/canon.prefab',NULL,NULL),(67,NULL,NULL,NULL,NULL,NULL,NULL,1,'handofgod',6,NULL,'Assets/JellyGarden/Resources/Prefabs/Booters/HandOfGod.prefab',NULL,NULL),(68,NULL,NULL,NULL,NULL,NULL,NULL,1,'hammer',6,NULL,'Assets/JellyGarden/Resources/Prefabs/Booters/BooterHammer.prefab',NULL,NULL),(69,NULL,NULL,NULL,NULL,NULL,NULL,1,'arrow',6,NULL,'Assets/JellyGarden/Resources/NewParticle/EffectPuzzle/Booster/DaotiacayEffect.prefab',NULL,NULL),(70,NULL,NULL,NULL,NULL,NULL,NULL,1,'gallon',2,NULL,'Assets/OutGameFarm/Texture2D/Art/UI/Event/gallon.png',NULL,NULL),(71,NULL,NULL,NULL,NULL,NULL,NULL,1,'camera',2,NULL,NULL,NULL,NULL),(72,NULL,NULL,NULL,NULL,NULL,NULL,1,'star',2,NULL,'Assets/OutGameFarm/Prefabs/Event/StartEvent.prefab',NULL,NULL),(73,NULL,NULL,NULL,NULL,NULL,NULL,1,'note',2,NULL,'Assets/OutGameFarm/Prefabs/Event/EventCollectLightBall/ItemEventNote.prefab',NULL,NULL),(74,NULL,NULL,NULL,NULL,NULL,NULL,1,'blueberry',0,NULL,'Assets/OutGameFarm/Texture2D/Art/Farm/ItemBonus/BlueberyTree/vietquat.png',NULL,NULL),(75,NULL,NULL,NULL,NULL,NULL,NULL,1,'redberry',0,NULL,'Assets/OutGameFarm/Texture2D/Art/Farm/ItemBonus/RedBerryTree/dau_do.png',NULL,NULL),(76,NULL,NULL,NULL,NULL,NULL,NULL,1,'pineapple',0,NULL,'Assets/OutGameFarm/Texture2D/Art/Farm/tree/PineApple/dua1.png',NULL,NULL),(77,NULL,NULL,NULL,NULL,NULL,NULL,0,'Gold',7,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/Layer 7.png',NULL,NULL),(78,NULL,NULL,NULL,NULL,NULL,NULL,0,'Energy',7,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/Brightness_Contrast 1.png',NULL,NULL),(79,NULL,NULL,NULL,NULL,NULL,NULL,0,'Gem',7,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/Layer 43.png',NULL,NULL),(80,NULL,NULL,NULL,NULL,NULL,NULL,0,'Exp',7,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/Layer 3.png',NULL,NULL),(81,NULL,NULL,NULL,NULL,NULL,NULL,0,'Lives',7,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/Layer 10.png',NULL,NULL),(82,NULL,NULL,NULL,NULL,NULL,NULL,0,'Lightball',6,NULL,'Assets/OutGameFarm/Sprites/UI/PopUp Quest+Next Level/Quest/bong den.png',NULL,NULL),(83,NULL,NULL,NULL,NULL,NULL,NULL,0,'Rocket',6,NULL,'Assets/JellyGarden/Resources/NewParticle/EffectPuzzle/Booster/rocket_SkeletonData.asset',NULL,NULL),(84,NULL,NULL,NULL,NULL,NULL,NULL,0,'Bomb',6,NULL,'Assets/OutGameFarm/Sprites/UI/Pop Up Match 3/Pop up chuan bi vao Match 3/BOMB TNT.png',NULL,NULL);
+/*!40000 ALTER TABLE `items` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-08-13 18:08:57
